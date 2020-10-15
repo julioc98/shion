@@ -1,0 +1,16 @@
+{
+    "name": "shion",
+    "description": "Shion",
+    "keywords": [
+        "Shion",
+        "Go",
+        "Golang"
+    ],
+    "website": "http://github.com/julioc98/shion",
+    "repository": "http://github.com/julioc98/shion",
+    "addons": [
+        {
+          "plan": "heroku-postgresql:hobby-dev"
+        }
+      ]
+}

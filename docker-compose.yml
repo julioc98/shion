@@ -1,0 +1,31 @@
+version: "3.6"
+
+services:
+  shion:
+    build: .
+    container_name: shion-api
+    environment:
+      PGUSER: shion
+      PGPASSWORD: shion
+      PGDATABASE: shion
+      PGHOST: shiondb
+      PGPORT: 5432
+      DB: postgres
+      DATABASE_URL: "host=shiondb port=5432 user=shion dbname=shion password=shion sslmode=disable"
+    expose:
+      - 5001
+    ports:
+      - 5001:5001
+      - 9229:9229
+    depends_on:
+      - shiondb
+
+  shiondb:
+    container_name: shion-db
+    image: postgres:11.4
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: shion
+      POSTGRES_PASSWORD: shion
+      POSTGRES_DB: shion
