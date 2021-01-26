@@ -8,7 +8,7 @@ run/api:
 	go run cmd/api/main.go
 
 run/db:
-	docker-compose up shiondb
+	docker-compose up postgres
 
 run/docker:
 	docker-compose up --build
