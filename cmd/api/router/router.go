@@ -2,11 +2,12 @@ package router
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/julioc98/shion/cmd/api/handler"
+	"github.com/julioc98/shion/pkg/defaultinterface"
 )
 
 // SetUserRoutes add routes from User
-func SetUserRoutes(ah handler.UserHandler, r *mux.Router) {
-	r.HandleFunc("", ah.Add).Methods("POST")
-	r.HandleFunc("/{id:[0-9]+}", ah.FindByID).Methods("GET")
+func SetUserRoutes(ah defaultinterface.UserHTTPHandler, r *mux.Router) {
+	r.HandleFunc("", ah.Create).Methods("POST")
+	r.HandleFunc("", ah.Get).Methods("GET")
+	r.HandleFunc("/auth", ah.GetToken).Methods("GET")
 }
